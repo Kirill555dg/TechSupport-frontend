@@ -1,0 +1,10 @@
+@import url('./__content/page__content.css');
+@import url('./__section/page__section.css');
+
+.page {
+  font-family: 'Inter', sans-serif;
+  background-color: #e0e1dd;
+  color: #1b263b;
+  min-width: 320px;
+  margin: 0;
+}

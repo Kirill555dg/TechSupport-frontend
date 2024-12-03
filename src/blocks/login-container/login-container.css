@@ -1,0 +1,21 @@
+@import url('./login-container__line.css');
+@import url('./login-container__logo.css');
+@import url('./login-container__logo-image.css');
+@import url('./login-container__guest.css');
+@import url('./login-container__identity.css');
+@import url('./login-container__heading.css');
+@import url('./login-container__button.css');
+
+.login-container {
+  background-color: #fff;
+  padding: 3rem;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    max-width: 600px;
+    border-radius: .5rem;
+  }
+}

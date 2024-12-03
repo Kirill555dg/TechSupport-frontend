@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Новая заявка</title>
+  <link rel="icon" href="<%=require('./images/favicon.svg')%>" type="image/x-icon">
+</head>
+
+<body class="page">
+  <div class="page__content">
+    <header class="header page__section">
+      <h1 class="header__title">Сервис технической поддержки</h1>
+      <h3 class="header__subtitle">Если у вас что-то сломалось - оставьте заявку, мы починим!</h3>
+    </header>
+    <main class="content">
+      <section class="application page__section">
+        <h3 class="application__title">Оставить заявку</h3>
+        <form class="application__form" name="edit-profile" novalidate>
+          <label class="application__field">
+            <input type="text" name="name" class="application__input application__input_type_name"
+              placeholder="Ваше ФИО" required minlength="3" maxlength="60">
+            <span class="application__error name-error"></span>
+          </label>
+          <label class="application__field">
+            <input type="email" name="email" class="application__input application__input_type_email"
+              placeholder="Ваша почта" required maxlength="70">
+            <span class="application__error email-error"></span>
+          </label>
+          <label class="application__field">
+            <input type="text" name="title" class="application__input application__input_type_title"
+              placeholder="Суть ошибки" required minlength="2" maxlength="60">
+            <span class="application__error title-error"></span>
+          </label>
+          <label class="application__field">
+            <textarea type="text" name="description" class="application__input application__input_type_description"
+              placeholder="Подробное описание" required minlength="20" maxlength="500"></textarea>
+            <span class="application__error description-error"></span>
+          </label>
+          <button type="submit" class="button application__button">Отправить</button>
+          <div class="application__message-box">
+            <span class="application__status">Статус отправки: </span>
+            <p class="application__response"></p>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer page__section">
+      <div class="footer__content">
+        <p class="footer__copyright">
+          © 2024 Кирилл Миркин
+        </p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

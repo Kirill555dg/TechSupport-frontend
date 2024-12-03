@@ -1,0 +1,13 @@
+@import url('./header__title.css');
+@import url('./header__subtitle.css');
+
+.header {
+  height: min-content;
+  padding: 20px 0;
+  background-color: #415a77;
+  color: #e0e1dd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

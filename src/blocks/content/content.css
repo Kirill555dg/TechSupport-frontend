@@ -1,0 +1,7 @@
+.content {
+  flex-shrink: 0;
+  flex-grow: 1;
+  background-color: #e0e1dd;
+  padding: 20px;
+  box-sizing: border-box;
+}

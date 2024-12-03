@@ -1,0 +1,15 @@
+@import url('./footer__content.css');
+@import url('./footer__copyright.css');
+
+.footer {
+  height: min-content;
+  min-height: 50px;
+  background-color: #0d1b2a;
+  color: #e0e1dd;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+}

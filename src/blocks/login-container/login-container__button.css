@@ -1,0 +1,14 @@
+/* Кнопка "Оставить заявку" */
+.login-container__button {
+  background-color: #415a77;
+  color: white;
+}
+
+.login-container__button_long {
+  min-width: max-content;
+}
+
+.login-container__button_short {
+  width: 20%;
+  min-width: max-content;
+}
