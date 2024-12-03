@@ -1,7 +1,7 @@
 .popup__error {
   font-size: 12px;
   line-height: 15px;
-  color: red;
+  color: #e63946;
   opacity: 0;
   position: relative;
   top: 5px;

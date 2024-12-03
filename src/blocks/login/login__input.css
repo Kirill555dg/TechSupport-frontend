@@ -1,0 +1,35 @@
+.login__input {
+  border: 2px solid #415a77;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 100%;
+  /* Фиксированная ширина */
+  box-sizing: border-box;
+}
+
+.login__input:focus {
+  outline: none;
+  border-color: #778da9;
+}
+
+.login__input_type_error {
+  border: 1px solid #e63946;
+}
+
+.login__input_type_description {
+  resize: vertical;
+  /* Запрещает изменение ширины */
+  width: 100%;
+  /* Фиксированная ширина */
+  max-width: 600px;
+  /* При необходимости установить максимальную ширину */
+  min-height: 100px;
+  /* Задайте подходящую высоту */
+  max-height: 250px;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+  border: 2px solid #415a77;
+  border-radius: 5px;
+  box-sizing: border-box;
+}

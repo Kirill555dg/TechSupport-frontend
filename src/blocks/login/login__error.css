@@ -1,0 +1,14 @@
+.login__error {
+  color: #e63946;
+  opacity: 0;
+  font-size: 0.875rem;
+  min-height: 1.5em;
+  /* Резервируем место */
+  width: 100%;
+  /* Ширина ошибки совпадает с input */
+  box-sizing: border-box;
+}
+
+.login__error_visible {
+  opacity: 1;
+}

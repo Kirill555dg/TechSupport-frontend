@@ -36,6 +36,9 @@ const checkValidation = (formElement, validationSettings) => {
   const buttonElement = formElement.querySelector(validationSettings.submitButtonSelector)
 
   toggleButtonState(inputList, buttonElement, validationSettings.inactiveButtonClass)
+  inputList.forEach((inputElement) => {
+    checkInputValidity(formElement, inputElement, validationSettings);
+  });
 }
 
 const hasInvalidInput = (inputList) => {

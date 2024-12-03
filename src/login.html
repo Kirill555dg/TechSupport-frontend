@@ -23,12 +23,12 @@
           </div>
           <div class="login-container__identity">
             <h2 class="login-container__heading">Войти с использованием учетной записи:</h2>
-            <a class="button login-container__button login-container__button_long">Пользователь/сотрудник</a>
+            <button class="button login-container__button login-container__button_long">Пользователь/сотрудник</button>
           </div>
           <div class="login-container__line"></div>
           <div class="login-container__guest">
             <h2 class="login-container__heading">Хотите сообщить о проблеме?</h2>
-            <a class="button login-container__button login-container__button_short">Оставить заявку</a>
+            <a class="button login-container__button login-container__button_short" href="index.html">Оставить заявку</a>
           </div>
         </div>
       </section>
@@ -40,30 +40,57 @@
         </p>
       </div>
     </footer>
-  </div>
 
 
 
-  <div class="popup popup_type_edit" style="display: none;">
-    <div class="popup__content">
-      <button type="button" class="popup__close"></button>
-      <h3 class="popup__title">Введите логин и пароль</h3>
-      <form class="login__form" name="login" novalidate>
-        <label class="login__field">
-          <input type="email" name="email" class="login__input login__input_type_email" placeholder="Почта" required
-            maxlength="70">
-          <span class="login__error email-error"></span>
-        </label>
-        <label class="login__field">
-          <input type="password" name="password" class="login__input login__input_type_password" placeholder="Пароль"
-            required>
-          <span class="login__error password-error"></span>
-        </label>
-        <button type="submit" class="button login__button">Войти</button>
-        <p class="login__message">Не зарегистрированы? <a href="#">Создать аккаунт</a></p>
-      </form>
+    <div class="popup popup_type_sign-in">
+      <div class="popup__content">
+        <button type="button" class="popup__close"></button>
+        <h3 class="popup__title">Авторизация</h3>
+        <form class="popup__form" name="signin" novalidate>
+          <label class="popup__field">
+            <input type="email" name="email" class="popup__input popup__input_type_email" placeholder="Почта" required
+              maxlength="70">
+            <span class="popup__error email-error"></span>
+          </label>
+          <label class="popup__field">
+            <input type="password" name="password" class="popup__input popup__input_type_password" placeholder="Пароль"
+              required>
+            <span class="popup__error password-error"></span>
+          </label>
+          <button type="submit" class="button popup__button">Войти</button>
+          <p class="popup__message">Не зарегистрированы? <button type="button" class="popup__link">Создать аккаунт</button></p>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup_type_sign-up">
+      <div class="popup__content">
+        <button type="button" class="popup__close"></button>
+        <h3 class="popup__title">Регистрация</h3>
+        <form class="popup__form" name="signup" novalidate>
+          <label class="popup__field">
+            <input type="email" name="email" class="popup__input popup__input_type_email" placeholder="Почта" required
+              maxlength="70">
+            <span class="popup__error email-error"></span>
+          </label>
+          <label class="popup__field">
+            <input type="password" name="password" class="popup__input popup__input_type_password" placeholder="Пароль"
+              required>
+            <span class="popup__error password-error"></span>
+          </label>
+          <label class="popup__field">
+            <input type="password" name="confirmPassword" class="popup__input popup__input_type_password" placeholder="Повторите пароль"
+              required>
+            <span class="popup__error confirmPassword-error"></span>
+          </label>
+          <button type="submit" class="button popup__button">Зарегистрироваться</button>
+        </form>
+      </div>
     </div>
   </div>
+
+
 </body>
 
 </html>

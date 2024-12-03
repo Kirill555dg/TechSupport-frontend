@@ -1,0 +1,18 @@
+@import url('./login__button.css');
+@import url('./login__error.css');
+@import url('./login__field.css');
+@import url('./login__form.css');
+@import url('./login__input.css');
+@import url('./login__message-box.css');
+@import url('./login__response.css');
+@import url('./login__status.css');
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  /* Уменьшили расстояние между элементами */
+  max-width: 800px;
+  margin: 0 auto;
+}
