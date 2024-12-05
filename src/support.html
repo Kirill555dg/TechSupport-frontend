@@ -4,6 +4,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доска задач</title>
+  <link rel="icon" href="<%=require('./images/favicon.svg')%>" type="image/x-icon">
+</head>
+
+<body class="page">
+  <div class="page__content">
+    <header class="header page__section">
+      <h1 class="header__title">Список назначенных задач</h1>
+    </header>
+    <main class="content">
+      <section class="desk">
+        <h1 class="desk__title">Доска задач</h1>
+        <div class="user-info">
+          <span>Иван Иванов</span>
+          <button class="logout-button button">Выйти</button>
+        </div>
+
+        <div class="kanban-container">
+
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">Новые</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">В работе</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">На ожидании</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">Выполнены</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <footer class="footer page__section">
+      <div class="footer__content">
+        <p class="footer__copyright">
+          © 2024 Кирилл Миркин
+        </p>
+      </div>
+    </footer>
+  </div>
+
+
+  <template id="task-template">
+    <li class="kanban-column__item task">
+      <div class="task__info">
+        <div class="task__header">
+          <h2 class="task__title"></h2>
+          <span class="task__date"></span>
+        </div>
+        <h3 class="task__user-name"></h3>
+        <h3 class="task__user-email"></h3>
+        <p class="task__description"></p>
+        <p>
+          Назначенный: 
+          <span class="task__employee"></span>
+        </p>
+      </div>
+      <div class="task__buttons">
+        <button type="button" class="button task__button" name="take">Взять задачу</button>
+        <button type="button" class="button task__button" name="give">Передать задачу</button>
+        <button type="button" class="button task__button" name="change">Изменить статус</button>
+      </div>
+    </li>
+  </template>
+</body>
+
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Рабочая область</title>
   <link rel="icon" href="<%=require('./images/favicon.svg')%>" type="image/x-icon">
 </head>
@@ -54,12 +146,11 @@
     </footer>
   </div>
 
-  <script src="./scripts/work.js" type="module"></script>
-
   <template id="task-template">
     <li class="tasks__item task">
       <div class="task__info">
         <h2 class="task__title"></h2>
+        <span class="task__date"></span>
         <h2 class="task__id"></h2>
         <h3 class="task__user-name"></h3>
         <h3 class="task__user-email"></h3>
@@ -72,4 +163,4 @@
   </template>
 </body>
 
-</html>
+</html> -->
