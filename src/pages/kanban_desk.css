@@ -235,16 +235,16 @@
 
 
 
-
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ffffff;
+}
 
 /* Стили для канбан-доски */
 .desk {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100%;
+  flex-grow: 1;
   background-color: #ffffff;
-  border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -260,7 +260,7 @@
 
 /* Пользовательская информация */
 .user-info {
-  
+
   padding: 20px;
   display: flex;
   justify-content: flex-end;
@@ -325,77 +325,130 @@
   min-height: 200px;
   gap: 16px;
 }
-
-/* Стили для задач */
-.task {
-  background-color: #f5f5f5;
+.kanban-column__item.task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
   border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
 }
 
-.task:hover {
-  box-shadow: 0 0 16px rgba(0, 13, 73, 0.25);
-}
-
-.task__title {
-  margin: 0;
-  margin-bottom: 8px;
-  height: max-content;
-  align-self: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #2b3a55;
+.task__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .task__header {
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
 }
 
-.task__description {
-  font-size: 16px;
-  color: #555555;
-  margin-bottom: 8px;
-}
-
-.task__user-name {
-  font-size: 14px;
-  color: #2b3a55;
+.task__title {
+  font-size: 18px;
   font-weight: bold;
-}
-
-.task__user-email {
-  font-size: 14px;
-  color: #888888;
-  margin-bottom: 8px;
+  color: #333;
+  margin: 0;
 }
 
 .task__date {
+  font-size: 14px;
+  color: #888;
+}
+
+.task__user-name,
+.task__user-email,
+.task__employee-name,
+.task__employee-email {
+  font-size: 14px;
+  color: #555;
   margin: 0;
-  height: max-content;
-  align-self: center;
-  font-size: 12px;
-  color: #aaaaaa;
-  text-align: right;
-  margin-left: auto;
 }
 
-.task__buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+.task__description span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
 }
 
-.task__button {
-  background-color: #2b3a55;
-  color: #ffffff;
+.task__description-text {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 0;
 }
 
 .task__employee {
-  margin: 5px 0;
+  display: flex; /* Используем Flexbox для разделения строк */
+  flex-direction: column;
+  gap: 4px; /* Небольшой отступ между строками */
+  font-size: 14px;
+  color: #444;
+}
+
+.task__buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.task__button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1d3557;
+  color: #fff;
   font-size: 16px;
-  color: #2c2c2c;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.task__button:hover {
+  background-color: #457b9d;
+}
+
+.header-links {
+  padding-left: 24px;
+  display: flex;
+  gap: 24px; /* Расстояние между ссылками */
+  justify-content: start; /* Выровнено по левому краю */
+  align-items: center;
+  font-size: 20px; /* Размер текста для заголовков */
+  font-weight: bold; /* Жирный шрифт */
+}
+
+.header-link {
+  text-decoration: none; /* Убираем стандартное подчеркивание */
+  color: #333; /* Цвет текста (темно-серый) */
+  padding-bottom: 4px; /* Добавляем немного пространства снизу для акцента */
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+.header-link:hover {
+  color: #0056b3; /* Синий цвет текста при наведении */
+}
+
+.header-link__active {
+  position: relative; /* Для подчеркивания */
+  color: #0056b3; /* Синий цвет для активной ссылки */
+}
+
+.header-link__active::after {
+  content: ''; /* Псевдоэлемент для подчеркивания */
+  position: absolute;
+  bottom: 0; /* Линия будет снизу */
+  left: 0;
+  width: 100%; /* Линия занимает всю ширину текста */
+  height: 3px; /* Толщина подчеркивания */
+  background-color: #0056b3; /* Цвет подчеркивания */
+  border-radius: 2px; /* Скругленные края линии */
 }

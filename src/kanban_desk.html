@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доска задач</title>
+  <link rel="icon" href="<%=require('./images/favicon.svg')%>" type="image/x-icon">
+</head>
+
+<body class="page">
+  <div class="page__content">
+    <header class="header page__section">
+      <h1 class="header__title">Канбан-доска задач</h1>
+    </header>
+    <main class="content">
+      <section class="top">
+        <div class="header-links">
+          <a href="kanban_desk.html" class="header-link header-link__active">Доска задач</a>
+          <a href="assigned_tasks.html" class="header-link">Мои задачи</a>
+        </div>
+        <div class="user-info">
+          <span class="user-info__employee"></span>
+          <button class="logout-button button">Выйти</button>
+        </div>
+      </section>
+      <section class="desk">
+        <div class="kanban-container">
+
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">Новые</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">В работе</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">На ожидании</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+          <div class="kanban-column">
+            <h2 class="kanban-column__title">Выполнены</h2>
+            <ul class="kanban-column__list">
+
+            </ul>
+          </div>
+
+        </div>
+      </section>
+    </main>
+    <footer class="footer page__section">
+      <div class="footer__content">
+        <p class="footer__copyright">
+          © 2024 Кирилл Миркин
+        </p>
+      </div>
+    </footer>
+  </div>
+
+
+  <template id="task-template">
+    <li class="kanban-column__item task">
+      <div class="task__info">
+        <div class="task__header">
+          <h2 class="task__title"></h2>
+          <span class="task__date"></span>
+        </div>
+        <h3 class="task__user-name"></h3>
+        <h3 class="task__user-email"></h3>
+        <div class="task__description">
+          <span>Описание:<br></span>
+          <p class="task__description-text"></p>
+        </div>
+        <div class="task__employee">
+          <span>Назначенный сотрудник:</span>
+          <span class="task__employee-name"></span>
+          <span class="task__employee-email"></span>
+        </div>
+      </div>
+      <div class="task__buttons">
+        <button type="button" class="button task__button" name="take">Взять задачу</button>
+      </div>
+    </li>
+  </template>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+@import url('../vendor/normalize.css');
+@import url('../vendor/fonts.css');
+
+@import url('../blocks/page/page.css');
+@import url('../blocks/header/header.css');
+@import url('../blocks/content/content.css');
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/login/login.css');
+@import url('../blocks/button/button.css');
+@import url('../blocks/popup/popup.css');
+
+
+
+
+
+/* Общий стиль для секции задач */
+.workzone {
+  background-color: #f4f7fb; /* Легкий фон */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Стили для списка задач */
+.tasks {
+  padding: 10px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  list-style: none;
+  flex-grow: 1;
+}
+
+/* Стили для задач */
+.task {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: min-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task:hover {
+  box-shadow: 0 0 16px rgba(0, 13, 73, 0.25);
+}
+
+
+.tasks__item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень при наведении */
+}
+
+/* Заголовок задачи */
+.task__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 8px;
+}
+
+/* Название задачи */
+.task__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Темный текст для контраста */
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Дата создания задачи */
+.task__creation-date {
+  font-size: 14px;
+  color: #777; /* Светло-серый для даты */
+}
+
+/* Информация о задаче */
+.task__info {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Статус задачи */
+.task__status {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff; /* Синий статус */
+  margin: 5px 0;
+}
+
+.task__text {
+  margin: 0;
+  font-size: 16px;
+  color: #555555;
+}
+
+.task__description {
+  margin: 0;
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 8px;
+}
+
+.task__user-name {
+  margin: 0;
+  font-size: 14px;
+  color: #2b3a55;
+  font-weight: bold;
+}
+
+.task__user-email {
+  margin: 0;
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+/* Стиль для кнопок */
+.task__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Кнопка "В процессе" */
+.task__progress-button {
+  background-color: #ecb157; /* Темно-оранжевый для задач в процессе */
+  color: #fff; /* Белый текст для контраста */
+  font-size: 14px; /* Уменьшена высота кнопки */
+  padding: 8px 15px;
+  border: 1px solid #ff952b; /* Тонкая рамка оранжевого цвета */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
+}
+
+/* Кнопка "На удержании" */
+.task__hold-button {
+  background-color: #78909c; /* Темно-серый для задач на удержании */
+  color: #fff; /* Белый текст для контраста */
+  font-size: 14px; /* Уменьшена высота кнопки */
+  padding: 8px 15px;
+  border: 1px solid #546e7a; /* Тонкая рамка серого цвета */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
+}
+
+/* Кнопка "Завершено" */
+.task__complete-button {
+  background-color: #388e3c; /* Темно-зеленый для завершенных задач */
+  color: #fff; /* Белый текст для контраста */
+  font-size: 14px; /* Уменьшена высота кнопки */
+  padding: 8px 15px;
+  border: 1px solid #2c6e32; /* Тонкая рамка зеленого цвета */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
+}
+
+/* Стили для задач */
+.tasks__item_type_new {
+  background-color: #e3f2fd; /* Голубоватый фон для новых задач */
+}
+
+.tasks__item_type_in-progress {
+  background-color: #fff3e0; /* Оранжевый фон для задач в процессе */
+}
+
+.tasks__item_type_on-hold {
+  background-color: #e4e8e9; /* Светло-серый фон для задач на удержании */
+}
+
+.tasks__item_type_done {
+  background-color: #c8e6c9; /* Зеленый для завершенных задач */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #ffffff;
+}
+
+/* Пользовательская информация */
+.user-info {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  grid-column: 2 / 3;
+  align-self: center;
+}
+
+.user-info span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2b3a55;
+}
+
+.logout-button {
+  background-color: #2b3a55;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.logout-button:hover {
+  background-color: #1f2c42;
+}
+
+
+
+
+
+.header-links {
+  padding-left: 24px;
+  display: flex;
+  gap: 24px; /* Расстояние между ссылками */
+  justify-content: start; /* Выровнено по левому краю */
+  align-items: center;
+  font-size: 20px; /* Размер текста для заголовков */
+  font-weight: bold; /* Жирный шрифт */
+}
+
+.header-link {
+  text-decoration: none; /* Убираем стандартное подчеркивание */
+  color: #333; /* Цвет текста (темно-серый) */
+  padding-bottom: 4px; /* Добавляем немного пространства снизу для акцента */
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
+
+.header-link:hover {
+  color: #0056b3; /* Синий цвет текста при наведении */
+}
+
+.header-link__active {
+  position: relative; /* Для подчеркивания */
+  color: #0056b3; /* Синий цвет для активной ссылки */
+}
+
+.header-link__active::after {
+  content: ''; /* Псевдоэлемент для подчеркивания */
+  position: absolute;
+  bottom: 0; /* Линия будет снизу */
+  left: 0;
+  width: 100%; /* Линия занимает всю ширину текста */
+  height: 3px; /* Толщина подчеркивания */
+  background-color: #0056b3; /* Цвет подчеркивания */
+  border-radius: 2px; /* Скругленные края линии */
+}

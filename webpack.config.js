@@ -7,7 +7,9 @@ module.exports = {
     entry: {
       new_task: path.resolve(__dirname, 'src', 'scripts', 'new_task.js'),
       login: path.resolve(__dirname, 'src', 'scripts', 'login.js'),
-      support: path.resolve(__dirname, 'src', 'scripts', 'support.js'),
+      kanban_desk: path.resolve(__dirname, 'src', 'scripts', 'kanban_desk.js'),
+      assigned_tasks: path.resolve(__dirname, 'src', 'scripts', 'assigned_tasks.js'),
+      submited_tasks: path.resolve(__dirname, 'src', 'scripts', 'submited_tasks.js'),
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -55,9 +57,19 @@ module.exports = {
           chunks: ['login'],
         }),
         new HtmlWebpackPlugin({
-          filename: 'support.html',
-          template: path.resolve(__dirname, 'src', 'support.html'),
-          chunks: ['support'],
+          filename: 'kanban_desk.html',
+          template: path.resolve(__dirname, 'src', 'kanban_desk.html'),
+          chunks: ['kanban_desk'],
+        }),
+        new HtmlWebpackPlugin({
+          filename: 'assigned_tasks.html',
+          template: path.resolve(__dirname, 'src', 'assigned_tasks.html'),
+          chunks: ['assigned_tasks'],
+        }),
+        new HtmlWebpackPlugin({
+          filename: 'submited_tasks.html',
+          template: path.resolve(__dirname, 'src', 'submited_tasks.html'),
+          chunks: ['submited_tasks'],
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin(),

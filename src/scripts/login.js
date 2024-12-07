@@ -7,6 +7,7 @@ import { openModal, closeModal } from './modal.js';
 
 const API_URL = "http://localhost:8000";
 const API_AUTH_URL = "/api/v1/auth";
+const API_USER_URL = "/api/v1/user";
 // Поп-ап
 const signInPopup = document.querySelector('.popup_type_sign-in');
 const signUpPopup = document.querySelector('.popup_type_sign-up');
@@ -56,6 +57,35 @@ const handleResponse = async (response) => {
   return response.json();
 };
 
+async function setToken(email, password) {
+  const response = await fetch(`${API_URL}${API_AUTH_URL}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await handleResponse(response);
+  console.log(data);
+  localStorage.setItem("jwtToken", data.token);
+}
+
+async function setRole() {
+  const token = localStorage.getItem("jwtToken");
+  const response = await fetch(`${API_URL}${API_USER_URL}/profile`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const profileInfo = await handleResponse(response);
+  localStorage.setItem("role", profileInfo.role)
+  localStorage.setItem("fullName", profileInfo.fullName);
+}
+
 // Прикрепление обработчика к форме
 signInFormElement.addEventListener('submit', async (evt) => {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -64,24 +94,19 @@ signInFormElement.addEventListener('submit', async (evt) => {
   const password = signInFormElement.password.value;
 
   try {
-    const response = await fetch(`${API_URL}${API_AUTH_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await handleResponse(response);
-    console.log(data);
-    // Save JWT token to localStorage
-    localStorage.setItem("jwtToken", data.token);
-
+    await setToken(email, password);
+    await setRole();
+    const role = localStorage.getItem("role");
     alert("Вы успешно авторизовались.");
-    // Redirect or update UI as needed
+    if (["CLIENT"].includes(role)) {
+      window.location.href = "/submited_tasks.html"; // Редирект на страницу авторизации
+    } else if (["EMPLOYEE", "ADMIN"].includes(role)) {
+      window.location.href = "/kanban_desk.html"; // Редирект на страницу авторизации
+    }
   } catch (error) {
     alert(error.message);
   }
+
 });
 
 signUpFormElement.addEventListener('submit', async (evt) => {
