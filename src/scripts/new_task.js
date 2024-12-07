@@ -1,4 +1,4 @@
-import '../pages/index.css';
+import '../pages/new_task.css';
 
 import { enableValidation, checkValidation} from './validate.js'
 import sendData from './send.js'
