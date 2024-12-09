@@ -1,11 +1,21 @@
-# Используем официальный образ Nginx
-FROM nginx:alpine
+# Используем официальный образ Node.js для сборки фронтенда
+FROM node:20 AS build
+# Указываем рабочую директорию
+WORKDIR /app
+# Копируем package.json и package-lock.json для установки зависимостей
+COPY package.json package-lock.json ./
+# Устанавливаем зависимости
+RUN npm install
+# Копируем исходный код проекта
+COPY . .
+# Сборка проекта с использованием Webpack
+RUN npm run build
 
-# Копируем содержимое фронтенда
-COPY src/ /usr/share/nginx/html/
-
-# Открываем порт
-EXPOSE 8080
-
-# Запуск Nginx
+# Используем минимальный образ Nginx для развертывания фронтенда
+FROM nginx:stable
+# Копируем собранные файлы из этапа сборки
+COPY --from=build /app/build /usr/share/nginx/html
+# Копируем конфигурационный файл Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
+# Запускаем Nginx
 CMD ["nginx", "-g", "daemon off;"]
