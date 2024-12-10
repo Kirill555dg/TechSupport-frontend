@@ -18,7 +18,6 @@ document.querySelector('.back-button').addEventListener("click", () => {
 });
 
 
-
 // Обработка формы отправки заявки
 const applicationFormElement = document.querySelector('.application__form')
 
