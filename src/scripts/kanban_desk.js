@@ -1,9 +1,7 @@
 import '../pages/kanban_desk.css';
 
+import { API_URL, API_APPLICATION_URL } from './routes.js';
 
-
-const API_URL = "http://localhost:8000";
-const API_APPLICATION_URL = "/api/v1/application"
 const jwtToken = localStorage.getItem("jwtToken"); // Получение токена из localStorage
 const role = localStorage.getItem("role");
 

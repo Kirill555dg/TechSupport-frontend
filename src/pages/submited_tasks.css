@@ -9,208 +9,171 @@
 @import url('../blocks/button/button.css');
 @import url('../blocks/popup/popup.css');
 
-/* Стили основного контента */
 
 
-.tasks {
-  margin: 0;
-  padding: 10px;
-}
 
-.tasks__title {
-  margin: 0;
-}
 
-/* Для всей секции workzone */
+/* Общий стиль для секции задач */
 .workzone {
-  display: none;
-  grid-template-columns: repeat(8, 1fr);
-  /* 8 колонок */
-  grid-template-rows: auto 1fr;
-  /* Две строки: одна для заголовка и кнопки, вторая для списка */
-  gap: 16px;
-  /* Расстояние между элементами */
-}
-
-/* Заголовок занимает 7 колонок в первой строке */
-.workzone__title {
-  grid-column: span 7;
-  /* Занимает 7 колонок */
-  grid-row: 1;
-  /* Находится в первой строке */
-  align-self: center;
-  /* Выравнивание по вертикали */
-  font-size: 1.5rem;
-  margin: 0;
-  /* Убираем отступы */
-}
-
-/* Кнопка выхода занимает 1 колонку в первой строке */
-.workzone__logout {
-  grid-column: span 1;
-  /* Занимает 1 колонку */
-  grid-row: 1;
-  /* Находится в первой строке */
+  background-color: #f4f7fb; /* Легкий фон */
   display: flex;
-  /* Для выравнивания кнопки */
-  justify-content: flex-end;
-  /* Прижать кнопку вправо */
-  align-items: center;
-  /* Центрировать кнопку по вертикали */
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-/* Список задач занимает все 8 колонок и вторую строку */
+/* Стили для списка задач */
 .tasks {
-  grid-column: span 8;
-  /* Занимает все 8 колонок */
-  grid-row: 2;
-  /* Находится во второй строке */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* Сетка из 3 колонок внутри списка */
-  gap: 16px;
-  /* Расстояние между задачами */
-  list-style: none;
-  /* Убираем маркеры списка */
-  padding: 0;
-  /* Убираем внутренние отступы */
+  padding: 10px;
   margin: 0;
-  /* Убираем внешние отступы */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  list-style: none;
+  flex-grow: 1;
+}
+
+/* Стили для задач */
+.task {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: min-content;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task:hover {
+  box-shadow: 0 0 16px rgba(0, 13, 73, 0.25);
 }
 
 
-.workzone__logout-button {
-  width: 100%;
-  background-color: #e63946;
-  color: white;
+.tasks__item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень при наведении */
 }
 
+/* Заголовок задачи */
+.task__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 8px;
+}
 
-/* Общий стиль для задач */
-.tasks__item {
-  grid-template-columns: 2fr;
-  grid-template-rows: 2fr;
+/* Название задачи */
+.task__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Темный текст для контраста */
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Дата создания задачи */
+.task__creation-date {
+  font-size: 14px;
+  color: #777; /* Светло-серый для даты */
+}
+
+/* Информация о задаче */
+.task__info {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Статус задачи */
+.task__status {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #007bff; /* Синий статус */
+  margin: 5px 0;
+}
+
+.task__text {
+  margin: 0;
+  font-size: 16px;
+  color: #555555;
+}
+
+.task__description {
+  margin: 0;
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 8px;
+}
+
+.task__user-name {
+  margin: 0;
+  font-size: 14px;
+  color: #2b3a55;
+  font-weight: bold;
+}
+
+.task__user-email {
+  margin: 0;
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+/* Стиль для кнопок */
+.task__actions {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 20px;
-  margin: 10px 0;
-  border: 2px solid #2c2c2c;
-  /* Тёмная граница */
-  border-radius: 10px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  color: #fff;
-  /* Белый текст */
-}
-
-
-.task__info {
-  display: flex;              /* Включаем Flexbox */
-  flex-direction: column;     /* Располагаем элементы вертикально */
-  justify-content: space-between; /* Разделяем пространство между элементами */
-  height: 100%;               /* Растягиваем контейнер на всю высоту */
-}
-
-/* Статус задачи: не взята (серый фон) */
-.tasks__item_type_new {
-  background-color: #a9a9a9;
-  /* Серый фон */
-  border-color: #6e6e6e;
-  /* Тёмно-серый бордер */
-}
-
-/* Статус задачи: в процессе (жёлто-оранжевый фон) */
-.tasks__item_type_in-progress {
-  background-color: #e76f51;
-  /* Жёлто-оранжевый */
-  border-color: #e76f51;
-  /* Оранжевый */
-}
-
-/* Статус задачи: выполнена (зелёный фон) */
-.tasks__item_type_done {
-  background-color: #1a7f6e;
-  /* Зелёный фон */
-  border-color: #1a7f6e;
-  /* Тёмно-зелёный бордер */
 }
 
 /* Кнопка "В процессе" */
 .task__progress-button {
-  transition: background-color 0.3s ease;
-  width: 100%;
-  color: white;
-  background-color: #f4a261;
-  /* Жёлто-оранжевый */
+  background-color: #ecb157; /* Темно-оранжевый для задач в процессе */
+  color: #fff; /* Белый текст для контраста */
+  font-size: 14px; /* Уменьшена высота кнопки */
+  padding: 8px 15px;
+  border: 1px solid #ff952b; /* Тонкая рамка оранжевого цвета */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
 }
 
-.task__progress-button:hover {
-  opacity: 0.8;
+/* Кнопка "На удержании" */
+.task__hold-button {
+  background-color: #78909c; /* Темно-серый для задач на удержании */
+  color: #fff; /* Белый текст для контраста */
+  font-size: 14px; /* Уменьшена высота кнопки */
+  padding: 8px 15px;
+  border: 1px solid #546e7a; /* Тонкая рамка серого цвета */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
 }
 
-/* Кнопка "Завершить" */
+/* Кнопка "Завершено" */
 .task__complete-button {
-  justify-self: end;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  color: white;
-  background-color: #2a9d8f;
-  /* Зелёный */
+  background-color: #388e3c; /* Темно-зеленый для завершенных задач */
+  color: #fff; /* Белый текст для контраста */
+  font-size: 14px; /* Уменьшена высота кнопки */
+  padding: 8px 15px;
+  border: 1px solid #2c6e32; /* Тонкая рамка зеленого цвета */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для выделения */
 }
 
-.task__complete-button:hover {
-  opacity: 0.8;
+/* Стили для задач */
+.tasks__item_type_new {
+  background-color: #e3f2fd; /* Голубоватый фон для новых задач */
 }
 
-
-/* Заголовок задачи */
-.task__title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ffffff;
-  margin-bottom: 8px;
-  text-align: left;
+.tasks__item_type_in-progress {
+  background-color: #fff3e0; /* Оранжевый фон для задач в процессе */
 }
 
-/* ID задачи (скрыт, если не требуется отображение) */
-.task__id {
-  font-size: 0.9rem;
-  font-weight: normal;
-  color: #d3d3d3;
-  margin-bottom: 8px;
-  text-align: left;
-  display: none;
-  /* Скрываем, если не нужно показывать */
+.tasks__item_type_on-hold {
+  background-color: #e4e8e9; /* Светло-серый фон для задач на удержании */
 }
 
-/* Имя пользователя */
-.task__user-name {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #f0f8ff;
-  margin-bottom: 4px;
-  text-align: left;
-}
-
-/* Email пользователя */
-.task__user-email {
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #e0ffff;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-/* Описание задачи */
-.task__description {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 12px;
-  text-align: justify;
-  /* Выравниваем по ширине */
-  line-height: 1.5;
-  /* Интервал между строками для удобства чтения */
+.tasks__item_type_done {
+  background-color: #c8e6c9; /* Зеленый для завершенных задач */
 }
 
 
@@ -227,40 +190,14 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-/* Стили для канбан-доски */
-.desk {
+.top {
   display: grid;
-  grid-template-rows: auto 1fr;
   grid-template-columns: 1fr 1fr;
-  min-height: 100%;
   background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.desk__title {
-  margin: 0;
-  padding: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #2b3a55;
-  align-self: center;
-  grid-column: 1 / 2;
 }
 
 /* Пользовательская информация */
 .user-info {
-
   padding: 20px;
   display: flex;
   justify-content: flex-end;
@@ -284,118 +221,32 @@
   margin-left: 20px;
 }
 
-.logout-button:hover {
-  background-color: #1f2c42;
-}
 
-/* Контейнер для канбан-доски */
-.kanban-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  grid-column: 1 / 3;
-  grid-row: 2 / 3;
-  background-color: #eef3fc;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-/* Стили для колонок */
-.kanban-column {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.kanban-column__title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #2b3a55;
-}
 
-.kanban-column__list {
+.header-send {
   display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  padding: 0;
+  gap: 24px; /* Расстояние между ссылками */
+  justify-content: start; /* Выровнено по левому краю */
+  align-items: center;
+  font-size: 20px; /* Размер текста для заголовков */
+  font-weight: bold; /* Жирный шрифт */
+}
+
+.send-button {
   margin: 0;
-  min-height: 200px;
-  gap: 16px;
-}
-
-/* Стили для задач */
-.task {
-  background-color: #f5f5f5;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.task:hover {
-  box-shadow: 0 0 16px rgba(0, 13, 73, 0.25);
-}
-
-.task__title {
-  margin: 0;
-  margin-bottom: 8px;
-  height: max-content;
-  align-self: center;
-  font-size: 16px;
-  font-weight: bold;
-  color: #2b3a55;
-}
-
-.task__header {
-  display: flex;
-}
-
-.task__description {
-  font-size: 16px;
-  color: #555555;
-  margin-bottom: 8px;
-}
-
-.task__user-name {
-  font-size: 14px;
-  color: #2b3a55;
-  font-weight: bold;
-}
-
-.task__user-email {
-  font-size: 14px;
-  color: #888888;
-  margin-bottom: 8px;
-}
-
-.task__date {
-  margin: 0;
-  height: max-content;
-  align-self: center;
-  font-size: 12px;
-  color: #aaaaaa;
-  text-align: right;
-  margin-left: auto;
-}
-
-.task__buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.task__button {
   background-color: #2b3a55;
   color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 20px;
 }
 
 .task__employee {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #2c2c2c;
+  display: flex; /* Используем Flexbox для разделения строк */
+  flex-direction: column;
+  gap: 4px; /* Небольшой отступ между строками */
+  font-size: 14px;
+  color: #444;
 }

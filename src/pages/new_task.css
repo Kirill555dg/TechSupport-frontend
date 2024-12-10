@@ -5,14 +5,13 @@
 @import url('../blocks/header/header.css');
 @import url('../blocks/content/content.css');
 @import url('../blocks/footer/footer.css');
-
+@import url('../blocks/button/button.css');
 /* Стили основного контента */
 .application {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px; /* Уменьшили расстояние между элементами */
-  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -130,4 +129,48 @@
 
 .application__response {
   margin: 0;
+}
+
+.disable-input {
+  cursor: not-allowed; /* Курсор "запрещено" */
+  outline: none; /* Убираем подсветку при фокусе */
+  opacity: 0.5;
+}
+
+.content__header {
+  padding: 10px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.content__title {
+  grid-column: 2;
+  text-align: center;
+  font-size: 24px;
+}
+
+.login-button {
+  height: 50px;
+  align-self: center;
+  margin: 0;
+  margin-left: auto;
+  grid-column: 3;
+  background-color: #2b3a55;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.back-button {
+  height: 50px;
+  align-self: center;
+  margin: 0;
+  margin-right: auto;
+  grid-column: 1;
+  background-color: #2b3a55;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
 }

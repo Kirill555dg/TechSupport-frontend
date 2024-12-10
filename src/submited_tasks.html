@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отправленные задачи</title>
+  <link rel="icon" href="<%=require('./images/favicon.svg')%>" type="image/x-icon">
+</head>
+
+
+<body class="page">
+
+  <div class="page__content">
+    <header class="header page__section">
+      <h1 class="header__title">Список отправленных задач</h1>
+    </header>
+    <main class="content">
+      <section class="top">
+        <div class="header-send">
+          <button class="send-button button">Создать новую заявку</button>
+        </div>
+        <div class="user-info">
+          <span class="user-info__employee"></span>
+          <button class="logout-button button">Выйти</button>
+        </div>
+      </section>
+      <section class="workzone page__section">
+        <ul class="tasks">
+        </ul>
+      </section>
+    </main>
+    <footer class="footer page__section">
+      <div class="footer__content">
+        <p class="footer__copyright">
+          © 2024 Кирилл Миркин
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <template id="task-template">
+    <li class="tasks__item task">
+      <div class="task__header">
+        <h2 class="task__title"></h2>
+        <p class="task__creation-date"></p>
+      </div>
+      <div class="task__info">
+        <span class="task__status"></span>
+        <span class="task__text">Описание:</span>
+        <p class="task__description"></p>
+        <div class="task__employee">
+          <span>Сотрудник:</span>
+          <span class="task__employee-name"></span>
+          <span class="task__employee-email"></span>
+        </div>
+      </div>
+    </li>
+  </template>
+</body>
+
+</html>

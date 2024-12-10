@@ -2,12 +2,8 @@ import '../pages/login.css';
 
 import { enableValidation, checkValidation } from './validate.js';
 import { openModal, closeModal } from './modal.js';
+import { API_URL, API_AUTH_URL, API_USER_URL } from './routes.js';
 
-
-
-const API_URL = "http://localhost:8000";
-const API_AUTH_URL = "/api/v1/auth";
-const API_USER_URL = "/api/v1/user";
 // Поп-ап
 const signInPopup = document.querySelector('.popup_type_sign-in');
 const signUpPopup = document.querySelector('.popup_type_sign-up');
@@ -84,6 +80,7 @@ async function setRole() {
   const profileInfo = await handleResponse(response);
   localStorage.setItem("role", profileInfo.role)
   localStorage.setItem("fullName", profileInfo.fullName);
+  localStorage.setItem("email", profileInfo.email);
 }
 
 // Прикрепление обработчика к форме

@@ -1,5 +1,7 @@
-export default async function sendData(name, email, title, description) {
 
+import { API_URL, API_APPLICATION_URL } from './routes.js';
+
+export default async function sendData(name, email, title, description) {
   try {
     // Создаем объект данных для отправки
     const application = {
@@ -12,7 +14,7 @@ export default async function sendData(name, email, title, description) {
     console.log(JSON.stringify(application))
 
     // Отправляем POST-запрос на сервер
-    const response = await fetch("http://localhost:8000/api/v1/application/create", {
+    const response = await fetch(`${API_URL}${API_APPLICATION_URL}/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -43,38 +45,3 @@ export default async function sendData(name, email, title, description) {
     };
   }
 }
-
-// form.addEventListener('submit', async (e) => {
-//   e.preventDefault();
-
-//   const formData = new FormData(form);
-
-//   // Формируем объект для отправки
-//   const taskData = {
-//     fio: formData.get('fio'),
-//     email: formData.get('email'),
-//     title: formData.get('title'),
-//     description: formData.get('description'),
-//   };
-
-//   try {
-//     const response = await fetch('http://localhost:8080/api/tasks', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(taskData),
-//     });
-
-//     if (response.ok) {
-//       alert('Задача успешно отправлена!');
-//       form.reset();
-//     } else {
-//       const error = await response.json();
-//       alert(`Ошибка: ${error.message}`);
-//     }
-//   } catch (err) {
-//     console.error('Ошибка соединения:', err);
-//     alert('Не удалось соединиться с сервером.');
-//   }
-// });

@@ -5,6 +5,19 @@ import sendData from './send.js'
 
 console.log("Somebody once told me the world is gonna roll me")
 
+const jwtToken = localStorage.getItem("jwtToken"); // Получение токена из localStorage
+
+document.querySelector('.login-button').addEventListener("click", () => {
+  // Перенаправление на страницу авторизации
+  window.location.href = "/login.html";
+});
+
+document.querySelector('.back-button').addEventListener("click", () => {
+  // Перенаправление на страницу авторизации
+  window.location.href = "/submited_tasks.html";
+});
+
+
 
 // Обработка формы отправки заявки
 const applicationFormElement = document.querySelector('.application__form')
@@ -18,6 +31,18 @@ const applicationButton = applicationFormElement.querySelector('.application__bu
 const applicationMessageBox = applicationFormElement.querySelector('.application__message-box')
 const applicationStatus = applicationMessageBox.querySelector('.application__status')
 const applicationResponse = applicationMessageBox.querySelector('.application__response')
+
+if (jwtToken) {
+  console.log('авторизован');
+  console.log(localStorage.getItem("fullName"));
+  nameInput.value = localStorage.getItem("fullName");
+  nameInput.classList.add('disable-input');
+  nameInput.readOnly = true;
+
+  emailInput.value = localStorage.getItem("email");
+  emailInput.classList.add('disable-input');
+  emailInput.readOnly = true;
+}
 
 // Обработчик «отправки» формы
 async function handleApplicationFormSubmit(evt) {
@@ -40,7 +65,9 @@ async function handleApplicationFormSubmit(evt) {
     applicationMessageBox.classList.add('application__message-box_type_success')
     applicationResponse.textContent = result.message; // Показываем сообщение об ошибке
      // Проверяем валидацию
+    applicationFormElement.reset()
     checkValidation(applicationFormElement, validationSettings);
+
   } else {
     applicationMessageBox.classList.remove('application__message-box_type_success')
     applicationMessageBox.classList.add('application__message-box_type_error')
