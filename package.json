@@ -1,23 +1,22 @@
 {
-  "name": "mesto",
+  "name": "support-service-frontend",
   "version": "1.1.0",
-  "description": "Project \"Mesto\" (Place in english), made during the Yandex Practicum Frontend course",
+  "description": "Frontend проект для сервиса автоматического распределения задач в отделе технической поддержки. Разработан в рамках курсовой работы.",
   "main": "components/index.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"
   },
   "keywords": [
-    "Место",
-    "Яндекс",
-    "Практикум",
+    "Курсовая работа",
+    "Сервис технической поддержки",
     "HTML5",
     "CSS3",
     "JavaScript",
     "БЭМ",
     "Webpack"
   ],
-  "author": "Кирилл Миркин",
+  "author": "Кирилл Миркин Леонидович",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.26.0",

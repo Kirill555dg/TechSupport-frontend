@@ -20,7 +20,7 @@ module.exports = {
     devServer: {
         static: path.resolve(__dirname, 'build'),
         compress: true,
-        port: 8008,
+        port: 8010,
         open: 'login.html'
     },
     module: {
